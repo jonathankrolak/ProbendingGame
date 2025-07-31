@@ -11,6 +11,8 @@ public class PlayerMovementAdvanced : MonoBehaviour
 
     public InputActionAsset inputAsset;
     private InputActionMap player;
+    private InputAction move;
+    private InputAction jump;
 
 
     [Header("Movement")]
@@ -91,16 +93,24 @@ public class PlayerMovementAdvanced : MonoBehaviour
 
         inputAsset = this.GetComponent<PlayerInput>().actions;
         player = inputAsset.FindActionMap("Player");
+        
 
-        inputActions.Player.Jump.performed += ctx => jumpPressed = true;
-        inputActions.Player.Sprint.performed += ctx => sprintHeld = true;
-        inputActions.Player.Sprint.canceled += ctx => sprintHeld = false;
-        inputActions.Player.Crouch.performed += ctx => crouchHeld = true;
-        inputActions.Player.Crouch.canceled += ctx => crouchHeld = false;
+        //inputActions.Player.Jump.performed += ctx => jumpPressed = true;
+
+    }
+    private void OnEnable(){
+        jump = player.FindAction("Jump");
+        jump.performed += ctx => jumpPressed = true;
+        player.Enable();
+    }
+    private void OnDisable(){
+       // jump = player.FindAction("Jump");
+        jump.performed -= ctx => jumpPressed = true;
+        player.Disable();
     }
 
-    private void OnEnable() => inputActions.Enable();
-    private void OnDisable() => inputActions.Disable();
+    //private void OnEnable() => inputActions.Enable();
+    //private void OnDisable() => inputActions.Disable();
 
     private void Start()
     {
@@ -129,7 +139,9 @@ public class PlayerMovementAdvanced : MonoBehaviour
 
     private void MyInput()
     {
-        moveInput = inputActions.Player.Move.ReadValue<Vector2>();
+        //moveInput = inputActions.Player.Move.ReadValue<Vector2>();
+        move = player.FindAction("Move");
+        moveInput = move.ReadValue<Vector2>();
 
         if (jumpPressed && readyToJump && grounded)
         {
