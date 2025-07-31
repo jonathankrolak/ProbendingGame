@@ -1,4 +1,3 @@
-// Animation/PlayerAnimation.cs
 using UnityEngine;
 
 public class PlayerAnimation : MonoBehaviour
@@ -27,7 +26,8 @@ public class PlayerAnimation : MonoBehaviour
     private void UpdateAnimationState()
     {
         bool isGrounded = _movement.grounded;
-        Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        Vector2 input = _movement.inputActions.Player.Move.ReadValue<Vector2>();
+
         _currentBlendInput = Vector3.Lerp(_currentBlendInput, input, locomotionBlendSpeed * Time.deltaTime);
 
         _animator.SetBool(isGroundedHash, isGrounded);

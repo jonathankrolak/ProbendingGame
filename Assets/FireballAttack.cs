@@ -4,7 +4,7 @@ public class FireballAttack : BasicAttack
 {
     [SerializeField] private GameObject projectilePrefab;
     [SerializeField] private Transform spawnPoint;
-    [SerializeField] private Camera mainCam;
+    [SerializeField] private Camera playerCamera;
 
     public override void PerformAttack()
     {
@@ -14,7 +14,7 @@ public class FireballAttack : BasicAttack
 
     private Vector3 GetAttackDirectionFromCamera()
     {
-        Ray ray = mainCam.ScreenPointToRay(Input.mousePosition);
+        Ray ray = playerCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f)); // Center of camera
         if (Physics.Raycast(ray, out RaycastHit hit, 100f))
         {
             Vector3 direction = (hit.point - spawnPoint.position).normalized;

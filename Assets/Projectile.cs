@@ -24,30 +24,44 @@ public class Projectile : MonoBehaviour
         moveDirection = direction.normalized;
     }
 
-    private void OnTriggerEnter(Collider other)
+    private bool hasHit = false;
+
+private void OnTriggerEnter(Collider other)
 {
+    if (hasHit) return;
+
     if (other.CompareTag("Enemy") || other.CompareTag("Player"))
     {
-        Debug.Log("Collided");
-        Rigidbody rb = other.GetComponent<Rigidbody>();
-        if (rb != null)
-        {
-            Debug.Log("Has rb");
-            Vector3 knockbackDir = (other.transform.position - transform.position).normalized;
-            rb.AddForce(knockbackDir * knockbackForce, ForceMode.Impulse);
-        }
+        hasHit = true;
+        Debug.Log("Collided with " + other.name);
 
-        // TODO: Apply damage if needed
+        Vector3 knockbackDir = (other.transform.position - transform.position).normalized;
+knockbackDir.y = 0f; // Remove vertical launch
+knockbackDir.Normalize();
+
+Rigidbody rb = other.GetComponent<Rigidbody>();
+if (rb != null)
+{
+    // Option 1: Directly set velocity (overwrites motion briefly)
+    rb.linearVelocity = knockbackDir * knockbackForce;
+
+    // Optional: add a vertical pop (like a stagger)
+    // rb.velocity += Vector3.up * 2f;
+}
+
+
+        // TODO: Apply damage here if needed
 
         Destroy(gameObject);
     }
     else
     {
-        // Optionally destroy projectile on other collisions
-         //Destroy(gameObject);
+        Destroy(gameObject);
     }
 }
 
 }
+
+
 
 
