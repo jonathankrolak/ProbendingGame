@@ -3615,7 +3615,7 @@ Rigidbody:
   m_GameObject: {fileID: 5441645623994470999}
   serializedVersion: 5
   m_Mass: 1
-  m_LinearDamping: 0
+  m_LinearDamping: 10
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
@@ -3645,19 +3645,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ee1915c0e7ae415ca3f9261c93e71aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkSpeed: 7
+  inputAsset: {fileID: 0}
+  player:
+    m_Name: Player
+    m_Id: 40601dc8-6ec0-4967-9e62-a7efd01d9b39
+    m_Asset: {fileID: 0}
+    m_Actions: []
+    m_Bindings: []
+  walkSpeed: 9
   sprintSpeed: 10
-  slideSpeed: 30
-  wallrunSpeed: 8.5
-  climbSpeed: 3
+  slideSpeed: 0
+  wallrunSpeed: 0
+  climbSpeed: 0
   vaultSpeed: 15
   airMinSpeed: 7
   speedIncreaseMultiplier: 1.5
-  slopeIncreaseMultiplier: 2.5
+  slopeIncreaseMultiplier: 0
   groundDrag: 8
-  jumpForce: 5
+  jumpForce: 7
   jumpCooldown: 0.25
-  airMultiplier: 0.4
+  airMultiplier: 0.2
   crouchSpeed: 3.5
   crouchYScale: 0.5
   playerHeight: 2
@@ -3667,13 +3674,13 @@ MonoBehaviour:
   grounded: 0
   maxSlopeAngle: 0
   orientation: {fileID: 4680048992600478941}
-  rb: {fileID: 0}
+  rb: {fileID: 7364116573294613242}
   text_speed: {fileID: 0}
   text_mode: {fileID: 0}
   state: 0
   sliding: 0
   crouching: 0
-  wallrunning: 1
+  wallrunning: 0
   climbing: 0
   vaulting: 0
   freeze: 0
@@ -3692,7 +3699,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 265530704820490295}
-  locomotionBlendSpeed: 6
+  locomotionBlendSpeed: 10
 --- !u!114 &7424092878138070258
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3705,7 +3712,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdeae63dd50bc48e095e60c57630c371, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isPlayerOne: 1
+  inputAsset: {fileID: 0}
+  player:
+    m_Name: Player
+    m_Id: d28bea3a-6f81-4808-b589-d012dfc2d362
+    m_Asset: {fileID: 0}
+    m_Actions: []
+    m_Bindings: []
 --- !u!114 &6088324402093379426
 MonoBehaviour:
   m_ObjectHideFlags: 0

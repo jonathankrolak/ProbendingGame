@@ -10,7 +10,7 @@ public class PlayerMovementAdvanced : MonoBehaviour
 
 
     public InputActionAsset inputAsset;
-    private InputActionMap player;
+    public InputActionMap player;
     private InputAction move;
     private InputAction jump;
 

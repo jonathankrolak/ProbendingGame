@@ -26,7 +26,7 @@ public class PlayerAnimation : MonoBehaviour
     private void UpdateAnimationState()
     {
         bool isGrounded = _movement.grounded;
-        Vector2 input = _movement.inputActions.Player.Move.ReadValue<Vector2>();
+        Vector2 input = _movement.player.FindAction("Move").ReadValue<Vector2>();//inputActions.Player.Move.ReadValue<Vector2>();
 
         _currentBlendInput = Vector3.Lerp(_currentBlendInput, input, locomotionBlendSpeed * Time.deltaTime);
 

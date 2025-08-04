@@ -36,14 +36,15 @@ private void OnTriggerEnter(Collider other)
         Debug.Log("Collided with " + other.name);
 
         Vector3 knockbackDir = (other.transform.position - transform.position).normalized;
-knockbackDir.y = 0f; // Remove vertical launch
+//knockbackDir.y = 0f; // Remove vertical launch
 knockbackDir.Normalize();
 
 Rigidbody rb = other.GetComponent<Rigidbody>();
 if (rb != null)
 {
     // Option 1: Directly set velocity (overwrites motion briefly)
-    rb.linearVelocity = knockbackDir * knockbackForce;
+    rb.AddForce(knockbackDir * knockbackForce, ForceMode.Impulse);
+
 
     // Optional: add a vertical pop (like a stagger)
     // rb.velocity += Vector3.up * 2f;
