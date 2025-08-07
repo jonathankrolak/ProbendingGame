@@ -693,7 +693,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6499951521249894740}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.14045036, y: 0.000000019044645, z: 0.000000002701606, w: 0.99008775}
+  m_LocalRotation: {x: -0.14045036, y: -0.000000019046633, z: -0.0000000027018878, w: 0.99008775}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1090,11 +1090,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 660428102699420735, guid: 01f521f77a6c14032b955517c322795b, type: 3}
       propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 660428102699420735, guid: 01f521f77a6c14032b955517c322795b, type: 3}
-      propertyPath: groundDrag
-      value: 9.32
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 747427795492897293, guid: 01f521f77a6c14032b955517c322795b, type: 3}
       propertyPath: playerCamera
@@ -1144,21 +1140,29 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 7364116573294613242, guid: 01f521f77a6c14032b955517c322795b, type: 3}
+      propertyPath: m_Mass
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7364116573294613242, guid: 01f521f77a6c14032b955517c322795b, type: 3}
+      propertyPath: m_LinearDamping
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7494320066233977477, guid: 01f521f77a6c14032b955517c322795b, type: 3}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 6055823869051933406}
-    - target: {fileID: 8827621513478274695, guid: 01f521f77a6c14032b955517c322795b, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
+    - target: {fileID: 8718827047832773287, guid: 01f521f77a6c14032b955517c322795b, type: 3}
+      propertyPath: viewTransform
+      value: 
+      objectReference: {fileID: 8252839050243025121}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 5441645623994470999, guid: 01f521f77a6c14032b955517c322795b, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 8494034749609246329}
+      addedObject: {fileID: 1735149677425357478}
   m_SourcePrefab: {fileID: 100100000, guid: 01f521f77a6c14032b955517c322795b, type: 3}
 --- !u!54 &2101536727672710249 stripped
 Rigidbody:
@@ -1170,65 +1174,31 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5441645623994470999, guid: 01f521f77a6c14032b955517c322795b, type: 3}
   m_PrefabInstance: {fileID: 8870034652045555347}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &8494034749609246329
+--- !u!114 &1735149677425357478
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3502721169498006724}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 601d4686cc0b70d45a98271d52094850, type: 3}
+  m_Script: {fileID: 11500000, guid: c1099fd71369b41fb88410a5cea401ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colliderSize: {x: 1, y: 2, z: 1}
-  weight: 75
-  rigidbodyPushForce: 2
-  solidCollider: 0
-  viewTransform: {fileID: 8252839050243025121}
-  playerRotationTransform: {fileID: 5821624398445221644}
-  crouchingHeightMultiplier: 0.5
-  crouchingSpeed: 10
-  crouchingEnabled: 1
-  slidingEnabled: 0
-  laddersEnabled: 1
-  supportAngledLadders: 1
-  useStepOffset: 0
-  stepOffset: 0.35
-  movementConfig:
-    autoBhop: 1
-    gravity: 20
-    jumpForce: 6.5
-    friction: 6
-    maxSpeed: 6
-    maxVelocity: 50
-    slopeLimit: 45
-    clampAirSpeed: 0
-    airCap: 0.6
-    airAcceleration: 6
-    airFriction: 0.4
-    walkSpeed: 7
-    sprintSpeed: 12
-    acceleration: 14
-    deceleration: 10
-    crouchSpeed: 4
-    crouchAcceleration: 8
-    crouchDeceleration: 4
-    crouchFriction: 3
-    minimumSlideSpeed: 9
-    maximumSlideSpeed: 18
-    slideSpeedMultiplier: 1.75
-    slideFriction: 14
-    downhillSlideSpeedMultiplier: 2.5
-    slideDelay: 0.5
-    swimUpSpeed: 12
-    underwaterSwimSpeed: 3
-    underwaterAcceleration: 6
-    underwaterDeceleration: 3
-    underwaterFriction: 2
-    underwaterGravity: 6
-    underwaterVelocityDampening: 2
+  playerCam: {fileID: 8252839050243025121}
+  orientation: {fileID: 4317384439781188174}
+  moveSpeed: 4500
+  maxSpeed: 20
+  grounded: 0
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 64
+  counterMovement: 0.175
+  maxSlopeAngle: 35
+  slideForce: 400
+  slideCounterMovement: 0.2
+  jumpForce: 550
 --- !u!4 &3549837175079591310 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5357946134147689245, guid: 01f521f77a6c14032b955517c322795b, type: 3}
