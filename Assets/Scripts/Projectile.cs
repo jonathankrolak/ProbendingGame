@@ -47,7 +47,7 @@ if (rb != null)
 
 
     // Optional: add a vertical pop (like a stagger)
-    // rb.velocity += Vector3.up * 2f;
+     rb.linearVelocity += Vector3.up * 2f;
 }
 
 
