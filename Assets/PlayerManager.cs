@@ -38,6 +38,9 @@
             Transform playerParent = player.transform.parent;
             playerTransform.position = startingPoints[players.Count - 1].position;
 
+            Debug.Log(playerTransform.position);
+            Debug.Log(playerTransform);
+
             //convert layer mask (bit) to an integer 
             int layerToAdd = (int)Mathf.Log(playerLayers[players.Count - 1].value, 2);
 

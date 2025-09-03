@@ -5,7 +5,7 @@ public class PlayerAnimation : MonoBehaviour
     [SerializeField] private Animator _animator;
     [SerializeField] private float locomotionBlendSpeed = 6f;
 
-    private PlayerMovementAdvanced _movement;
+    private PlayerMovement _movement;
     private Vector3 _currentBlendInput = Vector3.zero;
 
     private static readonly int inputXHash = Animator.StringToHash("inputX");
@@ -15,7 +15,7 @@ public class PlayerAnimation : MonoBehaviour
 
     private void Awake()
     {
-        _movement = GetComponent<PlayerMovementAdvanced>();
+        _movement = GetComponent<PlayerMovement>();
     }
 
     private void Update()

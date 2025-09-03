@@ -548,7 +548,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2885611447570972828}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.088928804, y: 7.037891e-18, z: 8.564138e-18, w: 0.996038}
+  m_LocalRotation: {x: -0.0889288, y: -0.0000000074210624, z: -6.625712e-10, w: 0.996038}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -693,7 +693,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6499951521249894740}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.14045036, y: -0.000000019046633, z: -0.0000000027018878, w: 0.99008775}
+  m_LocalRotation: {x: -0.14045036, y: 0.000000019046633, z: 0.0000000027018878, w: 0.99008775}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -772,7 +772,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7008794264678749930}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.11479767, y: 1.3263958e-15, z: 2.1298311e-16, w: 0.9933889}
+  m_LocalRotation: {x: -0.114797674, y: -0.0000000074013236, z: -8.5530927e-10, w: 0.9933889}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1088,14 +1088,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8032161687071474457}
     m_Modifications:
-    - target: {fileID: 660428102699420735, guid: 01f521f77a6c14032b955517c322795b, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 747427795492897293, guid: 01f521f77a6c14032b955517c322795b, type: 3}
       propertyPath: playerCamera
       value: 
       objectReference: {fileID: 6055823869051933406}
+    - target: {fileID: 1582088387232557615, guid: 01f521f77a6c14032b955517c322795b, type: 3}
+      propertyPath: jumpForce
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 1582088387232557615, guid: 01f521f77a6c14032b955517c322795b, type: 3}
+      propertyPath: moveSpeed
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1582088387232557615, guid: 01f521f77a6c14032b955517c322795b, type: 3}
+      propertyPath: groundDrag
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 3157622635060765087, guid: 01f521f77a6c14032b955517c322795b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1140,65 +1148,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 7364116573294613242, guid: 01f521f77a6c14032b955517c322795b, type: 3}
-      propertyPath: m_Mass
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7364116573294613242, guid: 01f521f77a6c14032b955517c322795b, type: 3}
-      propertyPath: m_LinearDamping
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7494320066233977477, guid: 01f521f77a6c14032b955517c322795b, type: 3}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 6055823869051933406}
-    - target: {fileID: 8718827047832773287, guid: 01f521f77a6c14032b955517c322795b, type: 3}
-      propertyPath: viewTransform
-      value: 
-      objectReference: {fileID: 8252839050243025121}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5441645623994470999, guid: 01f521f77a6c14032b955517c322795b, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1735149677425357478}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 01f521f77a6c14032b955517c322795b, type: 3}
 --- !u!54 &2101536727672710249 stripped
 Rigidbody:
   m_CorrespondingSourceObject: {fileID: 7364116573294613242, guid: 01f521f77a6c14032b955517c322795b, type: 3}
   m_PrefabInstance: {fileID: 8870034652045555347}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &3502721169498006724 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5441645623994470999, guid: 01f521f77a6c14032b955517c322795b, type: 3}
-  m_PrefabInstance: {fileID: 8870034652045555347}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1735149677425357478
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3502721169498006724}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1099fd71369b41fb88410a5cea401ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerCam: {fileID: 8252839050243025121}
-  orientation: {fileID: 4317384439781188174}
-  moveSpeed: 4500
-  maxSpeed: 20
-  grounded: 0
-  whatIsGround:
-    serializedVersion: 2
-    m_Bits: 64
-  counterMovement: 0.175
-  maxSlopeAngle: 35
-  slideForce: 400
-  slideCounterMovement: 0.2
-  jumpForce: 550
 --- !u!4 &3549837175079591310 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5357946134147689245, guid: 01f521f77a6c14032b955517c322795b, type: 3}
