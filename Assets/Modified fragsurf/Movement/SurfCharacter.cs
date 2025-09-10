@@ -115,6 +115,7 @@ namespace Fragsurf.Movement {
             
             _colliderObject = new GameObject ("PlayerCollider");
             _colliderObject.layer = gameObject.layer;
+            _colliderObject.tag = "Player";
             _colliderObject.transform.SetParent (transform);
             _colliderObject.transform.rotation = Quaternion.identity;
             _colliderObject.transform.localPosition = Vector3.zero;

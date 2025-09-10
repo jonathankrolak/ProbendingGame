@@ -2,12 +2,14 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
+    [Header("Projectile Settings")]
     [SerializeField] private float lifetime = 5f;
-    [SerializeField] private float damage = 10f;
+    [SerializeField] private float attackPower = 1f;
     [SerializeField] private float speed = 10f;
-    [SerializeField] private float knockbackForce = 5f; // Add knockback force strength
+    //[SerializeField] private float baseKnockbackForce = 5f;
 
     private Vector3 moveDirection;
+    private bool hasHit = false;
 
     private void Start()
     {
@@ -24,45 +26,40 @@ public class Projectile : MonoBehaviour
         moveDirection = direction.normalized;
     }
 
-    private bool hasHit = false;
-
-private void OnTriggerEnter(Collider other)
-{
-    if (hasHit) return;
-
-    if (other.CompareTag("Enemy") || other.CompareTag("Player"))
+    private void OnTriggerEnter(Collider other)
     {
-        hasHit = true;
-        Debug.Log("Collided with " + other.name);
+        if (hasHit) return;
 
-        Vector3 knockbackDir = (other.transform.position - transform.position).normalized;
-//knockbackDir.y = 0f; // Remove vertical launch
-knockbackDir.Normalize();
+        if (other.CompareTag("Enemy"))
+        {
+            hasHit = true;
+            Debug.Log("Projectile hit: " + other.name);
 
-Rigidbody rb = other.GetComponent<Rigidbody>();
-if (rb != null)
-{
-    // Option 1: Directly set velocity (overwrites motion briefly)
-    rb.AddForce(knockbackDir * knockbackForce, ForceMode.Impulse);
+            Enemy enemy = other.GetComponent<Enemy>();
+            if (enemy != null)
+            {
+                // Direction from projectile to enemy
+                Vector3 hitDirection = (other.transform.position - transform.position).normalized;
+
+                // Pass knockback and damage through the Enemy script
+                enemy.TakeHit(hitDirection, attackPower); 
+                // (damage / 10f) keeps scaling consistent, tweak as needed
+            }
+        } else if (other.CompareTag("Player"))
+            {
+                PlayerKnockback kb = other.GetComponentInParent<PlayerKnockback>();
+                Debug.Log("hti player");
+            if (kb != null)
+            {
+                Vector3 dir = (other.transform.position - transform.position).normalized;
+                float knockbackForce = attackPower * (1 + (100 / 100f));
+                kb.ApplyKnockback(dir, knockbackForce);
+                Debug.Log("player knockback");
+
+            }
+            }
 
 
-    // Optional: add a vertical pop (like a stagger)
-     rb.linearVelocity += Vector3.up * 2f;
-}
-
-
-        // TODO: Apply damage here if needed
-
-        Destroy(gameObject);
+        Destroy(gameObject); // Always destroy projectile after a collision
     }
-    else
-    {
-        Destroy(gameObject);
-    }
 }
-
-}
-
-
-
-
