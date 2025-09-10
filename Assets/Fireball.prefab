@@ -152,8 +152,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifetime: 15
   damage: 10
-  speed: 40
-  knockbackForce: 40
+  speed: 30
+  knockbackForce: 5
 --- !u!1001 &3631779245134373208
 PrefabInstance:
   m_ObjectHideFlags: 0

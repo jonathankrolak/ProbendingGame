@@ -28,12 +28,7 @@ public class PlayerCombat : MonoBehaviour
     {
         if (inputActions.AttackPressed && !isAttackOnCooldown)
         {
-            if (isRightPunchNext)
-                _animator.SetTrigger(attackRightHash);
-            else
-                _animator.SetTrigger(attackLeftHash);
-
-            isRightPunchNext = !isRightPunchNext;
+            attackAbility.PerformAttack();
             StartCoroutine(AttackCooldownRoutine());
             inputActions.ResetAttack();
         }
@@ -49,7 +44,7 @@ public class PlayerCombat : MonoBehaviour
     // 👇 Call this from the animation event
     public void FireballAnimationEvent()
     {
-        attackAbility.PerformAttack();
+        
     }
 }
 
