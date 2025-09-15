@@ -311,7 +311,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cded5d4485e5943a3b07efbb5404cd6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 7426504438140715754, guid: 0bf5a491034d542ebaba85a5375939f0, type: 3}
+  projectilePrefab: {fileID: 7426504438140715754, guid: 57fd1439448ac482c8a68d35e0778499, type: 3}
   spawnPoint: {fileID: 7253960165913343280}
   playerCamera: {fileID: 5467285083954485883}
 --- !u!114 &3311506269741021530

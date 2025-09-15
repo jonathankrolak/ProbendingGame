@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1424408245736696164}
   - component: {fileID: 4941226057773496975}
   m_Layer: 0
-  m_Name: Fireball
+  m_Name: PlayerFireball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -150,8 +150,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9ac524beb8e9469d891c982971c938b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifetime: 15
-  attackPower: 1000
+  lifetime: 10
+  attackPower: 25
   speed: 30
 --- !u!1001 &3631779245134373208
 PrefabInstance:

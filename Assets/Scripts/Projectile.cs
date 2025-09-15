@@ -6,7 +6,7 @@ public class Projectile : MonoBehaviour
     [SerializeField] private float lifetime = 5f;
     [SerializeField] private float attackPower = 1f;
     [SerializeField] private float speed = 10f;
-    //[SerializeField] private float baseKnockbackForce = 5f;
+    [SerializeField] private float damageAmount = 5f;
 
     private Vector3 moveDirection;
     private bool hasHit = false;
@@ -53,7 +53,7 @@ public class Projectile : MonoBehaviour
             {
                 Vector3 dir = (other.transform.position - transform.position).normalized;
                 float knockbackForce = attackPower * (1 + (100 / 100f));
-                kb.ApplyKnockback(dir, knockbackForce);
+                kb.ApplyKnockback(dir, knockbackForce, damageAmount);
                 Debug.Log("player knockback");
 
             }
